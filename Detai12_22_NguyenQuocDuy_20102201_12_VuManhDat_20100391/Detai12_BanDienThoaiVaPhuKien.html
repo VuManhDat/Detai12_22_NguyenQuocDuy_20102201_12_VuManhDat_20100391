@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <script src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/bootstrap-4.0.0-dist/js/jquery-3.6.0.min.js"></script>
+    <script src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <title>Cửa Hàng Điện Thoại D </title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 50px;
+            height: 70px;
+            align-items: center;    
+        }
+
+        .logo {
+            flex: 1;
+        }
+
+        .menu {
+            flex: 3;
+            display: flex;
+            padding: 0 12px;
+        }
+
+        menu li {
+            padding: 0 12px;
+            position: relative;
+        }
+        
+        .menu li:hover .submenu {
+            visibility: visible;
+            top: 70px;
+        }
+
+/*
+        .submenu li:hover .ulmenu{
+            display: block;
+        }
+
+        .ulmenu{
+            position: absolute;
+            width: 150px;
+            border: 1px solid #ccc;
+            padding: 10px 0 10px 20px ;
+            display: none;
+        }
+*/
+
+
+        .submenu {
+            position: absolute;
+            width: 150px;
+            border: 1px solid #ccc;
+            padding: 10px 0 10px 20px ;
+            visibility: hidden;
+            top: 50px;
+            transition: 0.3s;
+            z-index: 1  ;
+            
+        }
+
+        .submenu ul {
+            padding-left: 20px;
+        }
+
+        .submenu li a {
+            font-weight: normal!important;
+            font-size: 14px!important;
+        }
+
+        .menu li a {
+            font-size: 14px;
+            font-weight: bold!important;
+            display: block;
+            line-height: 20px;
+        }
+        
+        .others {
+            flex : 1;
+            display: flex;
+        }
+
+        .others li {
+            padding: 0 12px;
+        }
+
+        .others li:first-child input {
+            width: 100%;
+            position: relative;
+            border: none;
+            border-bottom: 1px solid #333;
+        }
+
+        .others li:first-child a {
+            position: absolute;
+        }
+
+        #Slider {
+            padding-bottom: 30px;
+            border-bottom: 2px solid #000;
+            overflow: hidden;
+        }
+
+
+        .aspect-ratio-169 {
+            display: block;
+            position: relative;
+            padding-top: 56.25%;
+            transition: 0,3s;
+        }
+
+        .aspect-ratio-169 img {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .dot-container {
+            position: absolute;
+            height: 30px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }        
+
+        .dot {
+            height: 16px;
+            width: 16px;
+            background-color: #CCC;
+            border-radius: 50%;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #333;
+        }
+
+        .app-container {
+            text-align: center;
+            align-items: center;
+            padding: 150px 0 50px 0;
+        }
+
+        .app-google {
+            margin: 50px;
+        }
+
+        .app-google img {
+            height: 50px;
+        }
+        
+        .phone1-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+
+        }
+
+        .phone2-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .phone3-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .phone4-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .phone5-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .phone6-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .phone7-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .phone10-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .phone8-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .phone9-container {
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            width: 20%;
+            float: left;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/logo.jpg" width="150px" height="150px">
+        </div>
+
+        <div class="menu">
+            <li><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DT.png" width="20px" height="20px"><a href="https://www.thegioididong.com/dtdd">Điện thoại&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/LT.png" width="20px" height="20px"><a href="https://www.thegioididong.com/laptop-ldp">LapTop&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/TL.png" width="20px" height="20px"><a href="https://www.thegioididong.com/may-tinh-bang">Tablet&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/HP.png" width="20px" height="20px"><a href="https://www.thegioididong.com/phu-kien">Phụ Kiện&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <ul class="submenu">
+                    <li><a href="">PHỤ KIỆN DI ĐỘNG</a>
+                        <ul class="ulmenu">
+                            <li><a href="https://www.thegioididong.com/sac-dtdd">Pin sạc dự phòng</a></li>
+                            <li><a href="https://www.thegioididong.com/sac-cap">Sạc, cáp</a></li>
+                            <li><a href="https://www.thegioididong.com/mieng-dan-man-hinh">Miếng dán màn hình</a></li>
+                            <li><a href="https://www.thegioididong.com/op-lung-flipcover">Ốp lưng điện thoại</a></li>
+                            <li><a href="https://www.thegioididong.com/op-lung-may-tinh-bang">Ốp lưng máy tính bảng</a></li>
+                            <li><a href="https://www.thegioididong.com/gay-tu-suong">Gậy chụp ảnh, Gimbal</a></li>
+                            <li><a href="https://www.thegioididong.com/gia-do-dien-thoai">Giá đỡ laptop, điện thoại</a></li>
+                            <li><a href="https://www.thegioididong.com/tui-chong-nuoc">Túi chống nước</a></li>
+                            <li><a href="https://www.thegioididong.com/tui-dung-airpods">Túi đựng Airpods</a></li>
+                            <li><a href="https://www.thegioididong.com/phu-kien-thong-minh">Phụ kiện Tablet</a></li>
+                            <li><a href="https://www.thegioididong.com/airtag">Airtag</a></li>
+                            <li><a href="https://www.thegioididong.com/de-moc-dien-thoai">Đế, móc điện thoại</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">PHỤ KIỆN LAPTOP</a>
+                        <ul class="ulmenu">
+                            <li><a href="https://www.thegioididong.com/chuot-may-tinh">Chuột, bàn phím</a></li>
+                            <li><a href="https://www.thegioididong.com/thiet-bi-mang">Thiết bị mạng</a></li>
+                            <li><a href="https://www.thegioididong.com/camera-giam-sat">Camera, Webcam</a></li>
+                            <li><a href="https://www.thegioididong.com/tui-chong-soc">Balo, Túi chống sóc</a></li>
+                            <li><a href="https://www.thegioididong.com/phan-mem">Phần mềm</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">THIẾT BỊ ÂM THANH</a>
+                        <ul class="ulmenu">
+                            <li><a href="https://www.thegioididong.com/tai-nghe">Tai nghe</a></li>
+                            <li><a href="https://www.thegioididong.com/loa-laptop">Loa</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">THƯƠNG HIỆU HÀNG ĐẦU</a>
+                        <ul class="ulmenu">
+                            <li><a href="https://www.thegioididong.com/phu-kien/apple">Apple</a></li>
+                            <li><a href="https://www.thegioididong.com/phu-kien/samsung">SamSung</a></li>
+                            <li><a href="https://www.thegioididong.com/phu-kien/sony">Sony</a></li>
+                            <li><a href="https://www.thegioididong.com/phu-kien/jbl">JBL</a></li>
+                            <li><a href="https://www.thegioididong.com/phu-kien/xiaomi">Xiaomi</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">THIẾT BỊ LƯU TRỮ</a>
+                        <ul class="ulmenu">
+                            <li><a href="https://www.thegioididong.com/the-nho-dien-thoai">Thẻ nhớ</a></li>
+                            <li><a href="https://www.thegioididong.com/usb">USB</a></li>
+                            <li><a href="https://www.thegioididong.com/o-cung-di-dong">Ổ cứng di động</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">NGƯỜI YÊU</a>
+                        <ul class="ulmenu">
+                            <li><a href="https://www.facebook.com/hoangghcc">Van King</a></li>
+                            <li><a href="https://www.facebook.com/qthang19">Quoc Win</a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=100013055115902">Van Chill</a></li>
+                            <li><a href="https://www.facebook.com/ig.nguyen.7">Japan Engrisk</a></li>
+                            <li><a href="https://www.facebook.com/hoangquy2503">Phu Precious</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/SW.png" width="20px" height="20px"><a href="https://www.thegioididong.com/dong-ho-thong-minh-ldp">Đồng hồ thông minh&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/old.jpg" width="20px" height="20px" ><a href="https://www.thegioididong.com/may-doi-tra">Máy cũ giá rẻ&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/sim.png" width="20px" height="20px"><a href="https://www.thegioididong.com/sim-so-dep">Sim, Thẻ cào&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a href="#"><button type="button" id="btn1" class="btn" data-toggle="modal" data-target="#myModal1" width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/login.jpg" width="20px" height="20px" >Đăng nhập </button></a></li>
+            <li><a href="#"><button type="button" id="btn2" class="btn" data-toggle="modal" data-target="#myModal"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DK.png" width="20px" height="20px" >Đăng ký </button></a></li>
+        </div>
+
+        <div class="others">   
+            <li><input type="text" placeholder="Tìm kiếm"><a href="#"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/search.png" width="20px" height=" 20px"></a></li>
+            <li><a href="https://www.thegioididong.com/cart"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/cart.jpg" width="20px" height="20px"></a></li>
+            <li><a href="#"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/Exit.jpg" width="20px" height="20px"></a></li>
+        </div>
+    </header>
+
+    <section id="Slider">
+        <div class="aspect-ratio-169">
+            <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-a73"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/slide1.png"></a>
+            <a href="https://www.thegioididong.com/dtdd-apple-iphone-13-series"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/slide2.png"></a>
+            <a href="https://www.thegioididong.com/dtdd/oppo-reno7-z"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/slide3.png"></a>
+            <a href="https://www.thegioididong.com/khuyen-mai-soc/note-11-series"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/slide4.png"></a>
+            <a href="https://www.thegioididong.com/3000-shops-dong-ho"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/slide5.png"></a>
+            <a href="https://www.thegioididong.com/mua-online-gia-re#laptop"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/slide6.png"></a>
+            <a href="https://www.thegioididong.com/dong-ho-thong-minh-apple-watch-series-7"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/slide7.png"></a>
+        </div>
+
+        <div class="dot-container">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
+
+    <section class="phone-container">
+        <aside class="phone1-container">
+            <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-a73"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/SamsungGalaxyA73_5G_128G.jpg" width="150px" height="200px"></a><br>
+            <p>Samsung Galaxy A73 5G 128GB</p><br>
+            <p>Hàng sắp về<br><p >Giá: 11.990.000đ</p><br><a href="https://www.thegioididong.com/dtdd/samsung-galaxy-a73">Tặng: Tai nghe Galaxy Buds Live, <br>Hoàn tiền 500 ngàn nhận hàng từ 22-25/4</a></p>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+        
+        <aside class="phone2-container">
+            <a href="https://www.thegioididong.com/dtdd/iphone-13-pro-max"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/iphone-13-pro-max-(4).jpg" width="150px" height="200px"></a><br>
+            <p>Điện thoại iPhone 13 Pro Max 128GB</p><br>
+            <p><p>Giá: 33.990.000đ</p><br>Quà 1.600.000đ <br></p><br><br>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+
+        <aside class="phone3-container">
+            <a href="https://www.thegioididong.com/dtdd/iphone-12"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/iphone-12-(14).jpg" width="150px" height="200px"></a><br>
+            <p>Điện thoại iPhone 12 64GB</p><br>
+            <p>Online giá rẻ<br><p >Giá: 18.490.000đ</p><br><br></p><br>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+
+        <aside class="phone4-container">
+            <a href="https://www.thegioididong.com/dtdd/vivo-y33s"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/vivo-y33s-(6).jpg" width="150px" height="200px"></a><br>
+            <p>Điện thoại Vivo Y33s</p><br>
+            <p>Online giá rẻ<br><p >Giá: 6.790.000đ</p><br>Quà 300.000đ<br></p><br>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+
+        <aside class="phone5-container">
+            <a href="https://www.thegioididong.com/dtdd/oppo-a55-4g"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/oppo-a55-4g-(2).jpg" width="150px" height="200px"></a><br>
+            <p>Điện thoại OPPO A55</p><br>
+            <p><p>4.990.000đ</p><br>Quà 300.000đ <br></p><br><br>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+        <aside class="phone6-container">
+            <a href="https://www.thegioididong.com/laptop/msi-gaming-gf63-thin-10sc-i7-480vn"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/msi-gaming-gf63-thin-10sc-i7-480vn-(4).jpg" width="150px" height="200px"></a><br>
+            <p>Laptop MSI Gaming GF63 Thin 10SC i7 1075H (480VN)</p><br>
+            <p>Ram 8GB - SSD 512GBb <br><p >21.340.000đ</p><br>Quà 1.460.000đ <br></p>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+
+        <aside class="phone7-container">
+            <a href="https://www.thegioididong.com/dong-ho-thong-minh/apple-watch-s6-40mm-vien-nhom-day-cao-su"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/apple-watch-s6-40mm-vien-nhom-day-cao-su-do-thumb-600x600.jpg" width="150px" height="200px"></a><br>
+            <p>Apple Watch S6 40mm viền nhôm dây silicone</p><br>
+            <p>Có chống nước - Có nghe gọi <br><p >7.990.000đ</p><br></p><br>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391//img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+
+        <aside class="phone8-container">
+            <a href="https://www.thegioididong.com/dtdd/xiaomi-11-lite-5g-ne"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/xiaomi-11-lite-5g-ne-(4).jpg" width="150px" height="200px"></a><br>
+            <p>Điện thoại Xiaomi 11 Lite 5G NE</p><br>
+            <p><p >9.490.000đ</p><br>Quà 1.500.000đ <br></p><br><br>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391//img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+
+        <aside class="phone9-container">
+            <a href="https://www.thegioididong.com/dtdd/realme-c21y"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/realme-c21y-(8).jpg" width="150px" height="200px"></a><br>
+            <p>Realme C21Y 4GB</p><br>
+            <p><p>4.290.000đ</p><br>Quà 300.000đ <br></p><br><br>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+
+        <aside class="phone10-container">
+            <a href="https://www.thegioididong.com/dtdd/vivo-y21s-6gb"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/vivo-y21s-white-600x600.jpg" width="150px" height="200px"></a><br>
+            <p>Điện thoại Vivo Y21s 6GB</p><br>
+            <p><p >4.490.000đ</p><br>Quà 200.000đ <br></p><br><br>
+            <button type="button" id="btnDH" class="btn" data-toggle="modal" data-target="#myModalDH"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/DH.png" width="20px" height="20px">Đặt hàng</button>
+            <button type="button" id="btnThem" class="btn" data-toggle="modal" data-target="#myModalThem"  width="20px" heigh="20px"><img src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/+cart.png" width="20px" height="20px">Thêm vào giỏ hàng</button>
+        </aside>
+    </section>
+
+    <section class="app-container">
+        <p style="text-align: center;">Tải ứng dụng D PhoneShop</p>
+        <div class="app-google">
+            <a href="#"><img  src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/AppStore.png" width="50px" height="50px"></a>
+            <a href="#"><img  src="../Detai12_22_NguyenQuocDuy_20102201_12_VuManhDat_20100391/img/CHPlay.png" width="50px" height="50px"></a>
+        </div>
+    </section>
+
+    <div class="modal fade" role="dialog" id="myModal1">
+        <div class="modal-dialog" style="margin-top:10px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="text-left">THÔNG TIN ĐĂNG NHẬP</h2>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="form-horizontal" style="margin-top:10px;">
+                        <label for="DN" class="control-label col-xs-3">Tên đăng nhập</label>
+                        <div class="col-xs-9" style="margin-bottom: 10px;">
+                            <input type="text" id="DN" class="form-control">
+                            <span class="text-danger" style="color:red" id="tbDN"></span>
+                        </div>
+                        <label for="MK" class="control-label col-xs-3">Mật khẩu</label>
+                        <div class="col-xs-9" style="margin-bottom: 10px;">
+                            <input type="password" id="MK" class="form-control">
+                            <span class="text-danger" style="color:red" id="tbMK"></span>
+                        </div>
+                        <button class="btn btn-sucess btn-group-justified" id="Save" type="button" style="color:white; background-color: green; width:100%;">Đăng nhập</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" role="dialog" id="myModal">
+        <div class="modal-dialog" style="margin-top:10px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="text-left">THÔNG TIN CÁ NHÂN</h2>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="form-horizontal" style="margin-top:10px;">
+                        <label for="Name" class="control-label col-xs-3">Họ tên</label>
+                        <div class="col-xs-9">
+                            <input type="text" id="Name" class="form-control">
+                            <span class="text-danger" id="tbName">*</span>
+                        </div>
+                        <label for="DC" class="control-label col-xs-3">Địa chỉ</label>
+                        <div class="col-xs-9">
+                            <input type="text" id="DC" class="form-control">
+                            <span class="text-danger" style="color:red;" id="tbDC">*</span>
+                        </div>
+                        <label for="BD" class="control-label col-xs-3">Birth Date</label>
+                        <div class="col-xs-9">
+                            <input type="date" id="BD" class="form-control">
+                            <span class="text-danger" style="color:red;" id="tbBD">*</span>
+                        </div>
+                        <label for="SDT" class="control col-xs-3">Số điện thoại</label>
+                        <div class="col-xs-9">
+                            <input type="text" id="SDT" class="form-control">
+                            <span class="text-danger" style="color:red;" id="tbSDT">*</span>
+                        </div>
+                        <label for="DN" class="control-label col-xs-3">Tên đăng nhập</label>
+                        <div class="col-xs-9" style="margin-bottom: 10px;">
+                            <input type="text" id="DN" class="form-control">
+                            <span class="text-danger" style="color:red" id="tbDN">*</span>
+                        </div>
+                        <label for="MK" class="control-label col-xs-3">Mật khẩu</label>
+                        <div class="col-xs-9" style="margin-bottom: 10px;">
+                            <input type="password" id="MK" class="form-control">
+                            <span class="text-danger" style="color:red" id="tbMK">*</span>
+                        </div>
+                        <label for="XNMK" class="control-label col-xs-3">Xác nhận mật khẩu</label>
+                        <div class="col-xs-9" style="margin-bottom: 10px;">
+                            <input type="password" id="XNMK" class="form-control">
+                            <span class="text-danger" style="color:red" id="tbXNMK">*</span>
+                        </div>
+                        <button class="btn btn-sucess btn-group-justified" id="Save" type="button" style="color:white; background-color: green; width:100%;">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" role="dialog" id="myModalDH">
+        <div class="modal-dialog" style="margin-top:10px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="text-left">THÔNG TIN CÁ NHÂN</h2>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="form-horizontal" style="margin-top:10px;">
+                        <label for="Name" class="control-label col-xs-3">Họ tên</label>
+                        <div class="col-xs-9">
+                            <input type="text" id="Name" class="form-control">
+                            <span class="text-danger" id="tbName">*</span>
+                        </div>
+                        <label for="DC" class="control-label col-xs-3">Địa chỉ</label>
+                        <div class="col-xs-9">
+                            <input type="text" id="DC" class="form-control">
+                            <span class="text-danger" style="color:red;" id="tbDC">*</span>
+                        </div>
+                        <label for="SDT" class="control col-xs-3">Số điện thoại</label>
+                        <div class="col-xs-9">
+                            <input type="text" id="SDT" class="form-control">
+                            <span class="text-danger" style="color:red;" id="tbSDT">*</span>
+                        </div>
+                        <label for="YC" class="control-label col-xs-3">Yêu cầu khác (không bắt buộc)</label>
+                        <div class="col-xs-9" style="margin-bottom: 10px;">
+                            <input type="text" id="YC" class="form-control">
+                            <span class="text-danger" style="color:red" id="tbYC"></span>
+                        </div>
+                        
+                        <button class="btn btn-sucess btn-group-justified" id="Save" type="button" style="color:white; background-color: green; width:100%;">Đặt ngay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" role="dialog" id="myModalThem">
+        <div class="modal-dialog" style="margin-top:10px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="text-left">Đã thêm vào giỏ hàng ~~</h2>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="text-align: center;">Nguyễn Quốc Duy 20102201</p> <br>
+        <p style="text-align: center;">Vũ Mạnh Đạt</p> <br>
+    </footer>
+</body>
+<script>
+    const imgPosition = document.querySelectorAll(".aspect-ratio-169 img")
+    const imgContainer = document.querySelector('.aspect-ratio-169')
+    const dotItem = document.querySelectorAll(".dot")
+    let imgNumber = imgPosition.length
+    let index = 0
+    imgPosition.forEach(function(image,index){
+        image.style.left = index*100 + "%"
+        dotItem[index].addEventListener("click",function(){
+            slider(index)
+        })
+    })
+
+    function imgSlide(){
+        index++;
+        console.log(index)
+        if(index>=imgNumber){index=0}
+        imgContainer.style.left = "-" +index*100+ "%"
+        slider(index)
+    }
+
+    function slider(index){
+        imgContainer.style.left = "-" +index*100+ "%"
+        const dotActive = document.querySelector('.active')
+        dotActive.classList.remove("active")
+        dotItem[index].classList.add("active")
+    }
+
+    setInterval(imgSlide,5000)
+
+    $(document).ready(function() {
+            var i = 1;
+             $("#btn2").click(function() {
+                 $("#myModal").modal();
+             });
+
+            function KiemTraTenDangNhap(){
+                let mauKT =/^[A-Za-z0-9_\.]{6,32}$/;
+                let chuoiKT = $("#DN").val();
+                if(chuoiKT.trim()==""){
+                    $("#tbDN").html("Bat buoc phai nhap");
+                    return false;
+                }
+                if(mauKT.test(chuoiKT)==true){
+                    $("#tbDN").html("*");
+                    return true;
+                }else{
+                    $("#tbDN").html("* Tên đăng nhập phải có ít nhất có 6 kí tự(nhiểu nhất 32 kí tự)!");
+                    return false;
+                }
+             }
+             $("#DN").blur(KiemTraTenDangNhap);
+
+           
+             function KiemTraMatKhau(){
+                let mauKT = /^([A-Z]){1}([\w_\.!@#$%^&*()]+){6,32}$/;
+                let chuoiKT = $("#MK").val();
+                if(chuoiKT.trim()==""){
+                    $("#tbMK").html("Bat buoc phai nhap");
+                    return false;
+                }
+                if(mauKT.test(chuoiKT)==true){
+                    $("#tbMK").html("*");
+                    return true;
+                }else{
+                    $("#tbMK").html("* Chữ cái đầu tiên phải viết hoa!(Mật khẩu phải có ít nhất 6 kí tự, nhiều nhất 32 kí tự)");
+                    return false;
+                }
+             }
+             $("#MK").blur(KiemTraMatKhau);
+
+             function KiemTraSoDienThoai(){
+                 let mauKT =/^[0-9]{10,12}$/;
+                 let chuoiKT = $("#SDT").val();
+                 if(chuoiKT.trim()==""){
+                    $("#tbSDT").html("Bat buoc phai nhap");
+                    return false;
+                }
+                if(mauKT.test(chuoiKT)==true){
+                    $("#tbSDT").html("*");
+                    return true;
+                }else{
+                    $("#tbSDT").html("* Số điện thoại không chứa kí tự và có từ 10 đến 12 số! ");
+                    return false;
+                }
+             }
+             $("#SDT").blur(KiemTraSoDienThoai);
+
+             $("#MK").blur(function KiemTraHoTen(){
+                 let mauKT =/^([A-Z]{1}[a-z]{1,6}\\s*)+$/;
+                 let chuoiKT = $("#Name").val();
+                if(mauKT.test(chuoiKT)==true){
+                    $("#tbSDT").html("*");
+                }else{
+                    $("#tbSDT").html("* Họ tên không hợp lệ! Kí tự đầu tiên là chữ cái viết hoa ");
+                }
+             });
+
+             function KiemTraXacNhanMatKhau(){
+                 let mauKT = $("#XNMK").val();
+                 let chuoiKT = $("#MK").val();
+                 if(chuoiKT.trim()==""){
+                    $("#tbXNMK").html("Bat buoc phai nhap");
+                    return false;
+                }
+                if(mauKT.test(chuoiKT)==true){
+                    $("#tbXNMK").html("*");
+                    return true;
+                }else{
+                    $("#tbXNMK").html("* Bạn xác nhận mật khẩu sai(mật khẩu vừa xác nhận không khớp)! Vui lòng xác nhận lại mật khẩu! ");
+                    return false;
+                }
+             }
+             $("#XNMK").blur(KiemTraXacNhanMatKhau);
+             
+
+             function KiemTraDiaChi(){
+                 let chuoiKT = $("#Name").val();
+                if(chuoiKT.trim()==""){
+                    $("#tbDC").html("* Bắt buộc nhập");
+                }else{
+                    $("#tbDC").html("*");
+                }
+             }
+             $("#DC").blur(KiemTraDiaChi);
+
+            function KiemTraBirthDate(){
+                if($("#BD").val().trim()==""){
+                    $("#tbBD").html("* Bắt buộc nhập");
+                    return false;
+                }
+                var day = new Date($("#BD").val());
+                var today = new Date();
+                today.setDate(today.getDate()+3650);
+                if(day < today){
+                    $("#tbBD").html("* Ngày sinh phải sau ngày hiện tại 10 năm");
+                }
+                $("#tbBD").html("*");
+             }
+             $("#BD").blur(KiemTraBirthDate);
+
+             function kiemTraHoTen(){
+                let  mauKT =/^([A-Z]{1}[a-z]*)+$/;
+                let chuoiKT = $("#Name").val();
+                if(chuoiKT.trim()==""){
+                    $("#tbName").html("Bat buoc phai nhap");
+                    return false;
+                }
+                if(mauKT.test(chuoiKT)==true)
+                {
+                    $("#tbName").html("*");
+                    return true;
+                }
+                else{
+                    $("#tbName").html(" chỉ dùng chữ hoa đầu từ (ví dụ: Tran Anh)");
+                    return false;
+                }
+            }
+
+            $("#Name").blur(kiemTraHoTen);
+        
+    });
+
+</script>
+</html>
